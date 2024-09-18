@@ -27,8 +27,8 @@ version '1.0'
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
 
-sourceCompatibility = 11
-targetCompatibility = 11
+sourceCompatibility = 17
+targetCompatibility = 17
 
 ext {
     cucumber_junit_platform_engine_version = "7.14.0"

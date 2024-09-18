@@ -5,6 +5,7 @@ import net.serenitybdd.screenplay.Question;
 
 import static co.com.choucair.userinterface.iniciosesion.InicioSesionUserinterface.NOMBRE_USUARIO_LOGUEADO;
 
+
 public class ValidarInicioSesion implements Question<Boolean> {
 
     public static ValidarInicioSesion exitoso() {

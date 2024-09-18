@@ -16,6 +16,6 @@ public class AbrirUrl implements Task {
     @Step("{0} Abriendo URL del sitio web")
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Open.browserOn().thePageNamed("pages.productStore"));
+                Open.browserOn().thePageNamed("pages.OrangeHRM"));
     }
 }
