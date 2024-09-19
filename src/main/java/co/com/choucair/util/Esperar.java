@@ -1,5 +1,6 @@
 package co.com.choucair.util;
 
+import net.serenitybdd.annotations.Step;
 import net.serenitybdd.model.time.InternalSystemClock;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Interaction;
@@ -20,6 +21,7 @@ public class Esperar implements Interaction {
     }
 
     @Override
+    @Step("{0} Esperando un tiempo")
     public <T extends Actor> void performAs(T actor) {
         new InternalSystemClock().pauseFor(tiempo);
     }

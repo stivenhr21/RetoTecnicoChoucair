@@ -20,8 +20,6 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 
 public class InicioSesionStepdefinitions {
-
-    //Inicializa el elenco de actores para las pruebas, permitiendo que los actores interactúen en el escenario de prueba.
     @Before
     public void setStage() {
         OnStage.setTheStage(new OnlineCast());
@@ -30,22 +28,19 @@ public class InicioSesionStepdefinitions {
     @Dado("que el usuario se encuentra en la pagina de inicio de sesion")
     public void queElUsuarioSeEncuentraEnLaPaginaDeInicioDeSesion() {
         OnStage.theActorCalled("El usuario").wasAbleTo(
-                AbrirUrl.dePagina()
-        );
+                AbrirUrl.dePagina());
     }
 
     @Cuando("el usuario ingresa sus credenciales")
     public void elUsuarioIngresaSusCredenciales(List<Map<String, Object>> informacion) {
         theActorInTheSpotlight().attemptsTo(
                 CargarDatos.conLaSiguiente(informacion),
-                InicioSesion.usuario()
-        );
+                InicioSesion.usuario());
     }
 
     @Entonces("el usuario se visualizara logueado en la pagina de inicio")
     public void elUsuarioSeVisualizaraLogueadoEnLaPaginaDeInicio() {
         theActorInTheSpotlight().should(GivenWhenThen.seeThat(
-                ValidarInicioSesion.exitoso(), Matchers.equalTo(true)
-        ));
+                ValidarInicioSesion.exitoso(), Matchers.equalTo(true)));
     }
 }

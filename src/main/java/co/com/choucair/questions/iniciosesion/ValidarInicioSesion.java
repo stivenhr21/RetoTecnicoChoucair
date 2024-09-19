@@ -1,5 +1,6 @@
 package co.com.choucair.questions.iniciosesion;
 
+import net.serenitybdd.annotations.Step;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 
@@ -13,6 +14,7 @@ public class ValidarInicioSesion implements Question<Boolean> {
     }
 
     @Override
+    @Step("{0} Validando inicio de sesion")
     public Boolean answeredBy(Actor actor) {
         return NOMBRE_USUARIO_LOGUEADO.resolveFor(actor).isVisible();
     }

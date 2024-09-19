@@ -11,14 +11,14 @@ Característica: Sitio web OrangeHRM - Agregar nuevo empleado
 
   @RegistroExitoso
   Esquema del escenario: registro de empleado exitosamente
-    Cuando inicio sesion con mis credenciales
+    Cuando el usuario ingresa sus credenciales
       | usuario   | clave   |
       | <usuario> | <clave> |
-    Y diligencio el formulario de informacion del empleado
-      | primerNombre   | segundoNombre   | apellido   | id   | usuario2   | clave2   | confirmaClave2   |
-      | <primerNombre> | <segundoNombre> | <apellido> | <id> | <usuario2> | <clave2> | <confirmaClave2> |
-    Y realizo la busqueda del empleado agregado
-    Entonces se visualizara el empleado agregado en una tabla
+    Y el usuario diligencia el formulario de informacion del empleado
+      | primerNombre   | segundoNombre   | apellido   | usuario2   | clave2   | confirmaClave2   |
+      | <primerNombre> | <segundoNombre> | <apellido> | <usuario2> | <clave2> | <confirmaClave2> |
+    Y el usuario realiza la busqueda del empleado agregado
+    Entonces el usuario visualizara el nuevo empleado
     Ejemplos:
-      | usuario | clave    | primerNombre | segundoNombre | apellido | id    | usuario2       | clave2         | confirmaClave2 |
-      | Admin   | admin123 | Juan         | Camilo        | Perez    | 12340 | pruebaChoucair | Prueba12345678 | Prueba12345678 |
+      | usuario | clave    | primerNombre | segundoNombre | apellido | usuario2         | clave2         | confirmaClave2 |
+      | Admin   | admin123 | Juan         | Camilo        | Perez    | pruebaChoucair32 | Prueba12345678 | Prueba12345678 |

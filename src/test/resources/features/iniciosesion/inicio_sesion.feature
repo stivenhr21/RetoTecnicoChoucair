@@ -1,10 +1,10 @@
 #language: es
 #autor: Stiven Hernandez Ramirez
 
-Característica: Sitio web Product Store - Inicio de Sesion
-  Yo como usuario del sitio web Product Store
+Característica: Sitio OrangeHRM - Inicio de Sesion
+  Yo como usuario del sitio web OrangeHRM
   Quiero iniciar sesión con mi usuario
-  Para realizar compras
+  Para realizar tramites
 
   Antecedentes:
     Dado que el usuario se encuentra en la pagina de inicio de sesion
@@ -16,5 +16,5 @@ Característica: Sitio web Product Store - Inicio de Sesion
       | <usuario> | <clave> |
     Entonces el usuario se visualizara logueado en la pagina de inicio
     Ejemplos:
-      | usuario                  | clave |
-      | stivenhr21TestAutomation | 123   |
+      | usuario | clave    |
+      | Admin   | admin123 |
