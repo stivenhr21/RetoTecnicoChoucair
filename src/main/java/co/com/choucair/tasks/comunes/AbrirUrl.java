@@ -13,7 +13,7 @@ public class AbrirUrl implements Task {
     }
 
     @Override
-    @Step("{0} Abriendo URL del sitio web")
+    @Step("{0} abre URL del sitio web")
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Open.browserOn().thePageNamed("pages.OrangeHRM"));

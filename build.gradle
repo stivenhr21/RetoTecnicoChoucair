@@ -1,44 +1,43 @@
+buildscript {
+    dependencies {
+        classpath("net.serenity-bdd:serenity-single-page-report:4.2.0")
+    }
+}
+
+plugins {
+    id 'java'
+    id 'idea'
+    id 'net.serenity-bdd.serenity-gradle-plugin' version "4.0.15"
+}
+
 defaultTasks 'clean', 'test', 'aggregate'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
 
 repositories {
     mavenCentral()
 }
 
-buildscript {
-    ext.serenityCoreVersion = "4.0.15"
-    repositories {
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-    dependencies {
-        classpath "net.serenity-bdd:serenity-gradle-plugin:4.0.15"
-        classpath "net.serenity-bdd:serenity-single-page-report:${serenityCoreVersion}"
-    }
+group = 'co.com.choucair'
+version = '1.0'
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
 }
-
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: "net.serenity-bdd.serenity-gradle-plugin"
-
-group 'co.com.choucair'
-version '1.0'
-
-compileJava.options.encoding = "UTF-8"
-compileTestJava.options.encoding = "UTF-8"
-
-sourceCompatibility = 17
-targetCompatibility = 17
 
 ext {
     cucumber_junit_platform_engine_version = "7.14.0"
     junit_platform_suite_version = "1.10.0"
     assertj_core_version = "3.23.1"
+    serenityCoreVersion = "4.2.0"
 }
 
 dependencies {
     // Serenity y Cucumber
-    testImplementation("net.serenity-bdd:serenity-core:${serenityCoreVersion}")
+    testImplementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}"
     testImplementation "net.serenity-bdd:serenity-cucumber:${serenityCoreVersion}"
     // JUnit Platform para usar con Cucumber
     testImplementation "io.cucumber:cucumber-junit-platform-engine:${cucumber_junit_platform_engine_version}"
@@ -52,8 +51,8 @@ dependencies {
     implementation "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCoreVersion}"
     implementation "net.serenity-bdd:serenity-ensure:${serenityCoreVersion}"
     // Logging con Log4j y SLF4J
-    implementation 'org.apache.logging.log4j:log4j-api:2.11.1'
-    implementation 'org.apache.logging.log4j:log4j-core:2.11.1'
+    implementation 'org.apache.logging.log4j:log4j-api:2.17.2'
+    implementation 'org.apache.logging.log4j:log4j-core:2.17.2'
     implementation "org.slf4j:slf4j-api:2.0.12"
     implementation "org.slf4j:slf4j-simple:2.0.12"
     // Selenium
@@ -61,9 +60,11 @@ dependencies {
 }
 
 test {
-    useJUnitPlatform()
-    testLogging.showStandardStreams = true
-    systemProperties System.getProperties()
+    useJUnit{
+        gradle.startParameter.continueOnFailure = true
+        testLogging.showStandardStreams = true
+        systemProperties System.getProperties()
+    }
 }
 
 serenity {

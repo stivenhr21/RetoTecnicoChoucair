@@ -21,7 +21,7 @@ public class DiligenciarDatos implements Task {
     public static String idEmpleado;
 
     @Override
-    @Step("{0} Diligenciando datos del empleado")
+    @Step("{0} diligencia datos del empleado")
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Click.on(OPCION_MENU_PIM),

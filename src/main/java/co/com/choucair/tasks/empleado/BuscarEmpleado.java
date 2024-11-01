@@ -18,7 +18,7 @@ public class BuscarEmpleado implements Task {
     }
 
     @Override
-    @Step("{0} Buscando empleado por id")
+    @Step("{0} busca empleado por id")
     public <T extends Actor> void performAs(T actor) {
 
         String idEmpleado = DiligenciarDatos.idEmpleado;

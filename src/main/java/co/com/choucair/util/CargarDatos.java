@@ -26,7 +26,7 @@ public class CargarDatos implements Task {
     }
 
     @Override
-    @Step("{0} Cargando datos de prueba para automatización #DatosDePrueba")
+    @Step("{0} carga datos de prueba para automatizacion")
     public <T extends Actor> void performAs(T actor) {
         if (datosDePrueba.isEmpty()) {
             manejarDatosVacios(actor);
